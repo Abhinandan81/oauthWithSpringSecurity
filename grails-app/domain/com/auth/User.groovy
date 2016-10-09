@@ -18,6 +18,11 @@ class User implements Serializable {
 	boolean accountLocked
 	boolean passwordExpired
 
+    String firstName
+    String lastName
+
+    String loginToken
+
 	User(String username, String password) {
 //		this()
 		this.username = username
