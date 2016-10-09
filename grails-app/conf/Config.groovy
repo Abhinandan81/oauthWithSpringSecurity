@@ -1,3 +1,5 @@
+import com.util.constants.Google2Api
+
 // locations to search for config files that get merged into the main config;
 // config files can be ConfigSlurper scripts, Java properties files, or classes
 // in the classpath in ConfigSlurper format
@@ -116,6 +118,23 @@ log4j.main = {
            'net.sf.ehcache.hibernate'
 }
 
+oauth {
+    providers {
+        google {
+            api = Google2Api
+            key = '100771609426-d1brivg8qug25j69h9f9vbh1fg8a2rjp.apps.googleusercontent.com'
+            secret = 'Vngjwg0RB7QkyKlV0DgUoMw6'
+            successUri = 'http://localhost:8080/oauthWithSpringSecurity/oauthCallBack/google'
+            failureUri = '/oauth/google/error'
+            callback = 'http://localhost:8080/oauthWithSpringSecurity/oauth/google/callback'
+            scope = 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
+        }
+    }
+}
+
+grails.google.api.url="https://www.googleapis.com/oauth2/v1/userinfo"
+
+
 
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.auth.User'
@@ -129,6 +148,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/js/**':        ['permitAll'],
 	'/**/css/**':       ['permitAll'],
 	'/**/images/**':    ['permitAll'],
-	'/**/favicon.ico':  ['permitAll']
+	'/**/favicon.ico':  ['permitAll'],
+    '/oauth/**':        ['permitAll']
 ]
 

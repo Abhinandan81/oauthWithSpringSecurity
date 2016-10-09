@@ -51,6 +51,8 @@ grails.project.dependency.resolution = {
         runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+//        compile "org.grails.plugins:oauth:2.6.1"
+
     }
 
     plugins {
@@ -64,7 +66,8 @@ grails.project.dependency.resolution = {
 
         //grails core security plugin
         compile ":spring-security-core:2.0.0"
-        compile "org.grails.plugins:oauth:2.6.1"
+
+        compile ':oauth:2.5'
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
